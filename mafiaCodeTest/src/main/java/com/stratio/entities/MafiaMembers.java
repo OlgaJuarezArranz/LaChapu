@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "mafiaMembers")
+@Table(name = "mafia_members")
 public class MafiaMembers implements Serializable {
 
 	/**

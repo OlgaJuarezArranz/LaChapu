@@ -5,9 +5,9 @@ import java.util.Date;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
@@ -38,7 +38,7 @@ public class MafiaMembersController {
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = { "/addMember" }, method = RequestMethod.GET)
 	@ApiOperation(value = "addMember")
-	public void addMafiaMember(@PathVariable String memberName, @PathVariable String memberStatus, @PathVariable Date memberJoinDate, @PathVariable Boolean memberBigBoss) {
+	public void addMafiaMember(@RequestParam("memberName") String memberName, @RequestParam("memberStatus") String memberStatus, @RequestParam("memberJoinDate") Date memberJoinDate, @RequestParam("memberBigBoss") Boolean memberBigBoss) {
 	       
 	        MafiaMembers mafiaMembers = new MafiaMembers(memberName, memberStatus, memberJoinDate, memberBigBoss);
 	       mafiaMembersService.addMafiaMember(mafiaMembers);
