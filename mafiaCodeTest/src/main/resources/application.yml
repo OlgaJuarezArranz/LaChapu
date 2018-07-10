@@ -1,0 +1,35 @@
+server:
+  env: http://localhost
+  port: 8081
+  swagger: /swagger-ui.html
+
+mafiaCodeTest:
+  version: 1.0
+  banner: http://patorjk.com/software/taag/p=testall&h=0&v=2&f=Blocks&t=MICRO%20FILM
+    
+spring:
+  datasource:
+    password: stratiotest
+    testWhileIdle: true        
+    url: jdbc:postgresql://192.168.1.130:5432/mafiaCodeDataBase
+    username: stratiotest
+    validationQuery: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      connection:
+        characterEncoding: UTF-8
+        useUnicode: true
+        charSet: UTF-8
+      properties:
+        hibernate:
+          driverClassName: org.postgresql.Driver
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+          show-sql: true
+  
+info:
+  application:
+    name: Spring Boot Mafia Code Test 
+    description: Mafia Code Test  project for Stratio Test
+    version: 1.0 
