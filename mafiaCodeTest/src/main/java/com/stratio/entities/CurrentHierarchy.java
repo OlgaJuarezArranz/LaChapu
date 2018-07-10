@@ -3,12 +3,10 @@ package com.stratio.entities;
 import static javax.persistence.GenerationType.IDENTITY;
 
 import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,12 +20,10 @@ public class CurrentHierarchy implements Serializable {
 	@Column(name = "current_hierarchy_id", unique = true, nullable = false)
 	private Integer currentHierarchyId;
 
-	@OneToMany(mappedBy = "boss_member_id")
-	@Column(name = "boss_id")
+	@Column(name = "boss_id", nullable = false)
 	private Integer bossId;
 
-	@OneToMany(mappedBy = "subordinate_member_id")
-	@Column(name = "subordinate_id")
+	@Column(name = "subordinate_id", nullable = false)
 	private Integer subordinateId;
 
 	public CurrentHierarchy() {

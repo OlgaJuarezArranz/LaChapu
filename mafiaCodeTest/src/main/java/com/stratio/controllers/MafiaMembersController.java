@@ -28,22 +28,22 @@ public class MafiaMembersController {
 	@Autowired
 	private MafiaMembersService mafiaMembersService;
 	
-//    /**
-//     * Rest Service to add a new member of the mafia
-//     * @param memberName
-//     * @param memberStatus
-//     * @param memberJoinDate
-//     * @param memberBigBoss
-//     */
-//	@ResponseStatus(HttpStatus.OK)
-//	@RequestMapping(value = { "/addMember" }, method = RequestMethod.GET)
-//	@ApiOperation(value = "addMember")
-//	public Boolean addMafiaMember(@PathVariable String memberName, @PathVariable String memberStatus, @PathVariable Date memberJoinDate, @PathVariable Boolean memberBigBoss) {
-//	       
-//	        MafiaMembers mafiaMembers = new MafiaMembers(memberName, memberStatus, memberJoinDate, memberBigBoss);
-//	       mafiaMembersService.addMafiaMember(mafiaMembers);
-//	        return true;
-//	}
+    /**
+     * Rest Service to add a new member of the mafia
+     * @param memberName
+     * @param memberStatus
+     * @param memberJoinDate
+     * @param memberBigBoss
+     */
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(value = { "/addMember" }, method = RequestMethod.GET)
+	@ApiOperation(value = "addMember")
+	public void addMafiaMember(@PathVariable String memberName, @PathVariable String memberStatus, @PathVariable Date memberJoinDate, @PathVariable Boolean memberBigBoss) {
+	       
+	        MafiaMembers mafiaMembers = new MafiaMembers(memberName, memberStatus, memberJoinDate, memberBigBoss);
+	       mafiaMembersService.addMafiaMember(mafiaMembers);
+	        
+	}
 	
 	@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = { "/hola" }, method = RequestMethod.GET)

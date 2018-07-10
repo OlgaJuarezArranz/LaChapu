@@ -2,6 +2,8 @@ package com.stratio.entities;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,22 +20,21 @@ public class ImprisonedTimeHierarchy {
 	@Column(name = "imprisoned_id", unique = true, nullable = false)
 	private Integer imprisonedId;
 	
-	@OneToMany(mappedBy = "imprisoned_boss_member_id")
-	@Column(name = "imprisoned_boss_id")
+	@Column(name = "imprisoned_boss_id", nullable = false)
 	private Integer imprisonedBossId;
 	
-	@OneToMany(mappedBy = "imprisoned_subordinate_member_id")
-	@Column(name = "imprisoned_subordinate_id")
-	private Integer imprisonedSubordinateId;
+	@Column(name = "imprisoned_subordinate_id", nullable = false)
+	private Integer imprisonedSubordinateIdList;
 	
 	public ImprisonedTimeHierarchy(){
 	}
 
-	public ImprisonedTimeHierarchy(Integer imprisonedId, Integer imprisonedBossId, Integer imprisonedSubordinateId) {
+	public ImprisonedTimeHierarchy(Integer imprisonedId, Integer imprisonedBossId,
+			Integer imprisonedSubordinateIdList) {
 		super();
 		this.imprisonedId = imprisonedId;
 		this.imprisonedBossId = imprisonedBossId;
-		this.imprisonedSubordinateId = imprisonedSubordinateId;
+		this.imprisonedSubordinateIdList = imprisonedSubordinateIdList;
 	}
 
 	public Integer getImprisonedId() {
@@ -52,12 +53,12 @@ public class ImprisonedTimeHierarchy {
 		this.imprisonedBossId = imprisonedBossId;
 	}
 
-	public Integer getImprisonedSubordinateId() {
-		return imprisonedSubordinateId;
+	public Integer getImprisonedSubordinateIdList() {
+		return imprisonedSubordinateIdList;
 	}
 
-	public void setImprisonedSubordinateId(Integer imprisonedSubordinateId) {
-		this.imprisonedSubordinateId = imprisonedSubordinateId;
+	public void setImprisonedSubordinateIdList(Integer imprisonedSubordinateIdList) {
+		this.imprisonedSubordinateIdList = imprisonedSubordinateIdList;
 	}
-	
+
 }
