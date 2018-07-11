@@ -17,7 +17,8 @@ public class MafiaMembersServiceImpl implements MafiaMembersService {
 	private MafiaMembersRepo mafiaMembersRepo;
 
 	@Override
-	public void addMafiaMember(MafiaMembers mafiaMembers) {
-			mafiaMembersRepo.save(mafiaMembers);
+	public MafiaMembers addMafiaMember(MafiaMembers mafiaMembers) {
+		return	mafiaMembersRepo.save(mafiaMembers);
+		
 	}
 }

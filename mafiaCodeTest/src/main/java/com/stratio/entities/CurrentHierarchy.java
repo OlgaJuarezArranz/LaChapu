@@ -35,6 +35,12 @@ public class CurrentHierarchy implements Serializable {
 		this.bossId = bossId;
 		this.subordinateId = subordinateId;
 	}
+	
+	public CurrentHierarchy(Integer bossId, Integer subordinateId) {
+		super();
+	    this.bossId = bossId;
+		this.subordinateId = subordinateId;
+	}
 
 	public Integer getCurrentHierarchyId() {
 		return currentHierarchyId;

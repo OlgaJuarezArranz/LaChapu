@@ -10,7 +10,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
-import org.apache.tomcat.util.codec.binary.StringUtils;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

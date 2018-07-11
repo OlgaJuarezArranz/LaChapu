@@ -4,6 +4,6 @@ import com.stratio.entities.MafiaMembers;
 
 public interface MafiaMembersService {
 
-	public void addMafiaMember(MafiaMembers mafiaMembers);
+	public MafiaMembers addMafiaMember(MafiaMembers mafiaMembers);
 	
 }
