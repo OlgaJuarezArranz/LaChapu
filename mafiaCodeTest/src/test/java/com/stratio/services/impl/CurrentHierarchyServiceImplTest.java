@@ -3,7 +3,9 @@ package com.stratio.services.impl;
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -15,6 +17,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.http.HttpStatus;
 
 import com.stratio.entities.CurrentHierarchy;
 import com.stratio.entities.MafiaMembers;
@@ -57,8 +60,15 @@ public class CurrentHierarchyServiceImplTest {
 
 	@Test
 	public void shouldABecomesABossOfB() {
-		when(currentHierarchyServiceImplMock.ABecomesABossOfB(currentHierarchyMock)).thenReturn(currentHierarchyMock);
-		assertNotNull(currentHierarchyServiceImplMock.ABecomesABossOfB(currentHierarchyMock));
-		assertThat(currentHierarchyServiceImplMock.ABecomesABossOfB(currentHierarchyMock), instanceOf(CurrentHierarchy.class));
+		when(currentHierarchyServiceImplMock.aBecomesABossOfB(currentHierarchyMock)).thenReturn(currentHierarchyMock);
+		assertNotNull(currentHierarchyServiceImplMock.aBecomesABossOfB(currentHierarchyMock));
+		assertThat(currentHierarchyServiceImplMock.aBecomesABossOfB(currentHierarchyMock), instanceOf(CurrentHierarchy.class));
+	}
+	
+	@Test
+	public void shouldAIsNotABossOfB() {
+		 when(currentHierarchyRepoMock.findByBossIdAndSubordinateId(BOSS_ID, SUBORDINATE_ID)).thenReturn(CURRENT_HIERARCHY_ID);
+		 currentHierarchyServiceImplMock.aIsNotABossOfB(BOSS_ID, SUBORDINATE_ID);
+		 verify(currentHierarchyRepoMock).delete(CURRENT_HIERARCHY_ID);
 	}
 }

@@ -7,5 +7,10 @@ public interface CurrentHierarchyService {
 	 /**
      * Method to doing the member A boss of member B in present moment
      */
-	public CurrentHierarchy ABecomesABossOfB(CurrentHierarchy currentHierarchy);
+	public CurrentHierarchy aBecomesABossOfB(CurrentHierarchy currentHierarchy);
+	
+	/**
+	 * Method to doing the member A stop being the boss of member B
+	 */
+	public void aIsNotABossOfB(Integer mafiaMemberAId, Integer mafiaMemberBId);
 }

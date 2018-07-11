@@ -18,12 +18,23 @@ public class CurrentHierarchyServiceImpl implements CurrentHierarchyService {
 
 	  /**
      * Method to doing the member A boss of member B in present moment
-     * @param mafiaMemberAId
-     * @param mafiaMemberBId
-     * @return Integer
+     * @param currentHierarchy
+     * @return CurrentHierarchy
      */
 	@Override
-	public CurrentHierarchy ABecomesABossOfB(CurrentHierarchy currentHierarchy) {
+	public CurrentHierarchy aBecomesABossOfB(CurrentHierarchy currentHierarchy) {
 		return currentHierarchyRepo.save(currentHierarchy);
+	}
+	
+	/**
+	 * Method to doing the member A stop being the boss of member B
+	 * @param currentHierarchy
+     * @return CurrentHierarchy
+     * @return Integer
+	 */
+	@Override
+	public void aIsNotABossOfB(Integer mafiaMemberAId, Integer mafiaMemberBId) {
+		Integer currentHierarchyId = currentHierarchyRepo.findByBossIdAndSubordinateId(mafiaMemberAId, mafiaMemberBId);
+		 currentHierarchyRepo.delete(currentHierarchyId);
 	}
 }
